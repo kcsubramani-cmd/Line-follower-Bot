@@ -1,0 +1,70 @@
+//During calibration, enter the threshold value of the IR sensors. For simplicity, we assume each of the sensors have the same threshold
+
+threshold = 500;
+int baseSpeed = 150; 
+int slowSpeed = 80;
+int turnSpeed = 200;
+
+void setup()
+{
+pinMode(5, OUTPUT);
+pinMode(7, OUTPUT);
+pinMode(8, OUTPUT);
+pinMode(6, OUTPUT);
+pinMode(9, OUTPUT);
+pinMode(11, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop()
+{
+int sensor[5];
+for(int i=0; i<=4; i++)
+{
+	sensor[i] = analogRead(i);
+}
+int s_binary[5];
+for(int i=0; i<=4; i++)
+{
+	if(sensor[i]>threshold)
+		s_binary[i] = 1;
+	else
+		s_binary[i] = 0; 
+}
+if (s_binary[0]==0 && s_binary[1]==0 && s_binary[2]==1 && s_binary[3]==0 && s_binary[4]==0) 
+	moveForward(baseSpeed, baseSpeed);
+else if (s_binary[0]==0 && s_binary[1]==1 && s_binary[2]==0 && s_binary[3]==0 && s_binary[4]==0)
+	moveForward(baseSpeed, slowSpeed);;
+else if (s_binary[0]==0 && s_binary[1]==0 && s_binary[2]==0 && s_binary[3]==1 && s_binary[4]==0)
+	moveForward(slowSpeed, baseSpeed);
+else if (s_binary[0]==1 && s_binary[1]==0 && s_binary[2]==0 && s_binary[3]==0 && s_binary[4]==0)
+	turnLeft(turnSpeed);
+else if (s_binary[0]==0 && s_binary[1]==0 && s_binary[2]==0 && s_binary[3]==0 && s_binary[4]==1)
+	turnRight(turnSpeed);
+else if (s_binary[0]==0 && s_binary[1]==0 && s_binary[2]==0 && s_binary[3]==0 && s_binary[4]==0)
+	stopMotors();
+}
+
+void moveForward(int speed1, int speed2)
+{
+	digitalWrite(7, HIGH); digitalWrite(8, LOW);
+	digitalWrite(9, HIGH); digitalWrite(11, LOW);
+	analogWrite(5, speed1); analogWrite(6, speed2);
+}
+void turnRight(int speed)
+{
+	digitalWrite(7, HIGH); digitalWrite(8, LOW);
+	digitalWrite(9, LOW); digitalWrite(11, HIGH);
+	analogWrite(5, speed); analogWrite(6, speed);
+}
+void turnLeftt(int speed)
+{
+	digitalWrite(7, LOW); digitalWrite(8, HIGH);
+	digitalWrite(9, HIGH); digitalWrite(11, LOW);
+	analogWrite(5, speed); analogWrite(6, speed);
+}
+void stopMotors ()
+{
+	analogWrite(5, 0)
+	analogWrite(6, 0)
+}
