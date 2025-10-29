@@ -21,7 +21,7 @@ Key learnings over the break
 2. Controlling of motors, reverse, forward, and speed control
 3. Intuition on the working of PID controller, and why it's better than a simple switch. (working on implementing it in code for the line follower bot)
 4. Algorithms for maze solver
- Dijkstra's algorithm,
+ Dijkstra's algorithm, A*
 5. Implimentation of PID, learned more code in c++
 
 Difficultues
