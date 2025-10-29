@@ -14,16 +14,17 @@ Control Algorithms used
   Drawbacks in code: Does not check for cases where 2 or more sensors give a value of 1, was not able to figure out a way to test the code.
   Generally, if-else statements will be extremely jerky and not smooth.
 2. PID-controller:
-  Still working on implementing the code.
+  Implimented PID, which uses analog logic for input from sensors for a better result.
 
 Key learnings over the break
 1. Basic functions in Arduino Code
 2. Controlling of motors, reverse, forward, and speed control
 3. Intuition on the working of PID controller, and why it's better than a simple switch. (working on implementing it in code for the line follower bot)
 4. Algorithms for maze solver
- Dijkstra's algorithm, 
+ Dijkstra's algorithm,
+5. Implimentation of PID, learned more code in c++
 
 Difficultues
-Relied much on AI for intuitions and ideas behind the code, and struggled to write my thoughts into code directly. 
+Relied much on AI to write my thoughts into code directly. 
 
   
