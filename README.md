@@ -21,7 +21,7 @@ Key learnings over the break
 2. Controlling of motors, reverse, forward, and speed control
 3. Intuition on the working of PID controller, and why it's better than a simple switch. (working on implementing it in code for the line follower bot)
 4. Algorithms for maze solver
-  Flood fill algorithm, A*, Dijkstra's algorithm, 
+ Dijkstra's algorithm, 
 
 Difficultues
 Relied much on AI for intuitions and ideas behind the code, and struggled to write my thoughts into code directly. 
